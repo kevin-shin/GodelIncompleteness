@@ -3,6 +3,10 @@ from tkinter import *
 
 welcomeWindow = None
 
+symbolDict = {'0':1,'s':2,'+':3,'*':4,'=':5,'(':6,')':7,',':8,'x':9,'|':10,'~':11,'&':12,'∃':13}
+'''differs from Crossley symbols because user needs to be able to type in'''
+
+
 
 def GUIMain():
     '''Our GUI function. This function is called when the program is run. It creates a welcome window with a label, image, and import button.'''
@@ -48,9 +52,55 @@ def introWindow():
     introWindow = tk.Tk()
     introWindow.title("Axioms and Language")
 
+    Frame1 = Frame(introWindow)
+    Frame1["bg"] = "white"
+    Frame1.grid(row=1, column=2)
+
+    # buttons corresponding to the functions
+    axiomButton = Button(Frame1)
+    axiomButton["text"] = "Axiom"
+    axiomButton["font"] = "Arial 12"
+    axiomButton["bg"] = "#997711"
+    axiomButton["fg"] = "blue"
+    axiomButton["command"] = axiomWindow
+    axiomButton.grid(row=1, column=1)
+
+    numberingButton = Button(Frame1)
+    numberingButton["text"] = "Godel Numbering"
+    numberingButton["font"] = "Arial 12"
+    numberingButton["bg"] = "#997711"
+    numberingButton["fg"] = "blue"
+    #numberingButton["command"] = cloneClick
+    numberingButton.grid(row=2, column=1)
+
+    encodeButton = Button(Frame1)
+    encodeButton["text"] = "Encode"
+    encodeButton["font"] = "Arial 12"
+    encodeButton["bg"] = "#997711"
+    encodeButton["fg"] = "blue"
+    encodeButton["command"] = encodeWindow
+    encodeButton.grid(row=3, column=1)
+
+    grayButton = Button(Frame1)
+    grayButton["text"] = "Grayscale"
+    grayButton["font"] = "Arial 12"
+    grayButton["bg"] = "#997711"
+    grayButton["fg"] = "blue"
+    #grayButton["command"] = grayClick
+    grayButton.grid(row=4, column=1)
+
+    sepiaButton = Button(Frame1)
+    sepiaButton["text"] = "Sepia"
+    sepiaButton["font"] = "Arial 12"
+    sepiaButton["bg"] = "#997711"
+    sepiaButton["fg"] = "blue"
+    #sepiaButton["command"] = sepiaClick
+    sepiaButton.grid(row=5, column=1)
+
 
     welcomeWindow.destroy()
     introWindow.mainloop()
+
 
 
 def axiomWindow():
@@ -59,15 +109,93 @@ def axiomWindow():
     global axiomWindow
     global welcomeWindow
 
-    #allows the user to pick a file, then turns the photo into a tkImage, one which we need to actually display the photo in tkinter
-
-
-    #main window and canvas
     axiomWindow = tk.Tk()
     axiomWindow.title("Axioms and Language")
 
 
     welcomeWindow.destroy()
     axiomWindow.mainloop()
+
+def encodeWindow():
+
+    '''takes in a string, converts into Godel's Number'''
+
+    global formulaCanvas
+    global formulaCanvas2
+    global formulaEntry
+
+
+    encodeWindow = tk.Tk()
+    encodeWindow.title("Encoding Formulae by Godel Numbering")
+
+    saveLabel = Label(encodeWindow, anchor="w")
+    saveLabel["text"] = "Enter a formula:"
+    saveLabel["font"] = "Arial 14"
+    saveLabel["bg"] = "white"
+    saveLabel.grid(row=0, column=1,pady=(15,5))
+
+    formulaEntry = Entry(encodeWindow, bg = 'white', bd = 0.5, font = "Arial 14",
+                justify = CENTER, width=40)
+    formulaEntry.grid(row=2,column=1,padx=10,pady=(0,15))
+    formulaEntry.bind("<Return>",convertFormula)
+
+    formulaCanvas = Canvas(encodeWindow)
+    formulaCanvas.grid(row=3, column=1, padx=30, pady=30)
+
+    formulaCanvas2 = Canvas(encodeWindow)
+    formulaCanvas2.grid(row=4, column=1, padx=30, pady=30)
+
+
+def convertFormula(event):
+    '''Takes in an event, in this case the pressing of the Return key by the user. When the Return key is pressed, this function will
+    take the picture currently on the canvas and save this image under the name entered by the user in saveWindow.'''
+    global saveText
+    global returnedNumber
+
+    if event.keysym == "Return": # examples of how to check what key
+        formulaCanvas.delete("all")
+        userText = formulaEntry.get()
+        returnedNumber = ''
+        for char in userText:
+            if char not in symbolDict.keys():
+                formulaCanvas.create
+            else:
+                returnedNumber = returnedNumber + str(symbolDict[char])
+
+
+    formulaCanvas.create_text(100,10,text="Converted Into Language: "+returnedNumber, justify=tk.CENTER)
+
+
+
+
+##---------MATH HELPER FUNCTIONS---------##
+
+def isitprime(n):
+    a = 2
+    flag = True
+    while a <= n/2:
+        if n%a == 0:
+            flag = False
+            break
+        else:
+            a += 1
+    return flag
+
+
+def generatePrimes(number):
+    start = number-2
+    primes = [2,3]
+    starter = 5
+    while start != 0:
+        if isitprime(starter):
+            primes.append(starter)
+            starter += 1
+            start -= 1
+        else:
+            starter += 1
+    return primes
+
+
+
 
 GUIMain()
