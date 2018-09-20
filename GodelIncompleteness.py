@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+from PIL import ImageTk, Image
 
 welcomeWindow = None
 
@@ -52,13 +53,20 @@ def introWindow():
     introWindow = tk.Tk()
     introWindow.title("Axioms and Language")
 
+    introLabel = Label(introWindow)
+    introLabel["bg"] = "white"
+    introLabel.grid(row=0, column=0)
+    introLabel["text"] = "SOME INTRO TEXT HERE ABOUT GODEL AND INCOMPLETENESS"
+
+
+
     Frame1 = Frame(introWindow)
     Frame1["bg"] = "white"
     Frame1.grid(row=1, column=2)
 
     # buttons corresponding to the functions
     axiomButton = Button(Frame1)
-    axiomButton["text"] = "Axiom"
+    axiomButton["text"] = "Axioms"
     axiomButton["font"] = "Arial 12"
     axiomButton["bg"] = "#997711"
     axiomButton["fg"] = "blue"
@@ -111,10 +119,26 @@ def axiomWindow():
 
     axiomWindow = tk.Tk()
     axiomWindow.title("Axioms and Language")
+    numberingWindow = tk.Tk()
+    numberingWindow.title("Godel Numbering System by Crossley")
+
+    axiomImage = ImageTk.PhotoImage(Image.open('EqualityAxioms.jpg'))
+    peanoImage = ImageTk.PhotoImage(Image.open('PeanoAxioms.jpg'))
+    inductionImage = ImageTk.PhotoImage(Image.open('Induction.jpg'))
+    godelImage = ImageTk.PhotoImage(Image.open('GodelNumberingKey.jpg'))
 
 
-    welcomeWindow.destroy()
+    axiomCanvas = Canvas(axiomWindow)
+    numberingCanvas = Canvas(numberingWindow)
+    axiomCanvas.pack(expand=YES, fill=BOTH)
+    axiomCanvas.create_image(50, 10, image=axiomImage, anchor=NW)
+    axiomCanvas.create_image(50, 10, image=peanoImage, anchor=NW)
+    axiomCanvas.create_image(50, 10, image=inductionImage, anchor=NW)
+    numberingCanvas.create_image(50, 10, image=godelImage, anchor=NW)
+
+
     axiomWindow.mainloop()
+    numberingWindow.mainloop()
 
 def encodeWindow():
 
@@ -161,8 +185,6 @@ def convertFormula(event):
                 formulaCanvas.create
             else:
                 returnedNumber = returnedNumber + str(symbolDict[char])
-
-
     formulaCanvas.create_text(100,10,text="Converted Into Language: "+returnedNumber, justify=tk.CENTER)
 
 
