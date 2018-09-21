@@ -1,4 +1,6 @@
 import tkinter as tk
+import math
+from mathHelperFunctions import *
 from tkinter import *
 from PIL import ImageTk, Image
 
@@ -25,14 +27,14 @@ def GUIMain():
     welcomeLabel["text"] = "Gödel Incompleteness Theorem" + "\n" + "Advanced Symbolic Logic"
     welcomeLabel["font"] = "Arial 24"
     welcomeLabel["bg"] = "white"
-    welcomeLabel.grid(row=0, column=1,padx=(50,50),pady=(100,25))
+    welcomeLabel.grid(row=0, column=1,padx=(50,50),pady=(100,15))
 
     #design labels for the window
     welcomeLabel = Label(welcomeWindow)
     welcomeLabel["text"] = "Created by Kevin Shin on 9/19/18"
     welcomeLabel["font"] = "Arial 14"
     welcomeLabel["bg"] = "white"
-    welcomeLabel.grid(row=2, column=1,padx=(50,50),pady=(15,5))
+    welcomeLabel.grid(row=2, column=1,padx=(50,50),pady=(0,50))
 
     #the import button
     startButton = Button(welcomeWindow)
@@ -41,7 +43,7 @@ def GUIMain():
     startButton["bg"] = "#997711"
     startButton["fg"] = "blue"
     startButton["command"] = introWindow
-    startButton.grid(row=3, column=1,padx=10,pady=(5,19))
+    startButton.grid(row=3, column=1,padx=(10,50),pady=(5,50))
 
     welcomeWindow.mainloop()
 
@@ -89,13 +91,13 @@ def introWindow():
     encodeButton["command"] = encodeWindow
     encodeButton.grid(row=3, column=1)
 
-    grayButton = Button(Frame1)
-    grayButton["text"] = "Grayscale"
-    grayButton["font"] = "Arial 12"
-    grayButton["bg"] = "#997711"
-    grayButton["fg"] = "blue"
+    decodeButton = Button(Frame1)
+    decodeButton["text"] = "Decode"
+    decodeButton["font"] = "Arial 12"
+    decodeButton["bg"] = "#997711"
+    decodeButton["fg"] = "blue"
     #grayButton["command"] = grayClick
-    grayButton.grid(row=4, column=1)
+    decodeButton.grid(row=4, column=1)
 
     sepiaButton = Button(Frame1)
     sepiaButton["text"] = "Sepia"
@@ -119,26 +121,35 @@ def axiomWindow():
 
     axiomWindow = tk.Tk()
     axiomWindow.title("Axioms and Language")
-    numberingWindow = tk.Tk()
-    numberingWindow.title("Godel Numbering System by Crossley")
+
 
     axiomImage = ImageTk.PhotoImage(Image.open('EqualityAxioms.jpg'))
     peanoImage = ImageTk.PhotoImage(Image.open('PeanoAxioms.jpg'))
     inductionImage = ImageTk.PhotoImage(Image.open('Induction.jpg'))
-    godelImage = ImageTk.PhotoImage(Image.open('GodelNumberingKey.jpg'))
 
 
     axiomCanvas = Canvas(axiomWindow)
-    numberingCanvas = Canvas(numberingWindow)
+
     axiomCanvas.pack(expand=YES, fill=BOTH)
     axiomCanvas.create_image(50, 10, image=axiomImage, anchor=NW)
     axiomCanvas.create_image(50, 10, image=peanoImage, anchor=NW)
     axiomCanvas.create_image(50, 10, image=inductionImage, anchor=NW)
+
+
+    numberWindow()
+    axiomWindow.mainloop()
+
+
+def numberWindow():
+    global numberingWindow
+    numberingWindow = tk.Tk()
+    numberingWindow.title("Godel Numbering System by Crossley")
+
+    godelImage = ImageTk.PhotoImage(Image.open('GodelNumberingKey.jpg'))
+    numberingCanvas = Canvas(numberingWindow)
     numberingCanvas.create_image(50, 10, image=godelImage, anchor=NW)
 
-
-    axiomWindow.mainloop()
-    numberingWindow.mainloop()
+    numberWindow.mainloop()
 
 def encodeWindow():
 
@@ -150,7 +161,7 @@ def encodeWindow():
 
 
     encodeWindow = tk.Tk()
-    encodeWindow.title("Encoding Formulae by Godel Numbering")
+    encodeWindow.title("Encoding Formulas by Godel Numbering")
 
     saveLabel = Label(encodeWindow, anchor="w")
     saveLabel["text"] = "Enter a formula:"
@@ -164,9 +175,11 @@ def encodeWindow():
     formulaEntry.bind("<Return>",convertFormula)
 
     formulaCanvas = Canvas(encodeWindow)
+    formulaCanvas.pack(expand=TRUE, fill='both')
     formulaCanvas.grid(row=3, column=1, padx=30, pady=30)
 
     formulaCanvas2 = Canvas(encodeWindow)
+    formulaCanvas2.pack(expand=TRUE, fill='both')
     formulaCanvas2.grid(row=4, column=1, padx=30, pady=30)
 
 
@@ -176,48 +189,17 @@ def convertFormula(event):
     global saveText
     global returnedNumber
 
+    list = []
     if event.keysym == "Return": # examples of how to check what key
         formulaCanvas.delete("all")
         userText = formulaEntry.get()
         returnedNumber = ''
         for char in userText:
             if char not in symbolDict.keys():
-                formulaCanvas.create
+                formulaCanvas.create_text(150,10,text="Please use the Godel Numbering specified.", justify=tk.LEFT)
             else:
                 returnedNumber = returnedNumber + str(symbolDict[char])
-    formulaCanvas.create_text(100,10,text="Converted Into Language: "+returnedNumber, justify=tk.CENTER)
-
-
-
-
-##---------MATH HELPER FUNCTIONS---------##
-
-def isitprime(n):
-    a = 2
-    flag = True
-    while a <= n/2:
-        if n%a == 0:
-            flag = False
-            break
-        else:
-            a += 1
-    return flag
-
-
-def generatePrimes(number):
-    start = number-2
-    primes = [2,3]
-    starter = 5
-    while start != 0:
-        if isitprime(starter):
-            primes.append(starter)
-            starter += 1
-            start -= 1
-        else:
-            starter += 1
-    return primes
-
-
+    formulaCanvas.create_text(150,10,text="Converted Into Language: "+returnedNumber, justify=tk.LEFT)
 
 
 GUIMain()
