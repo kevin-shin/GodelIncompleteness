@@ -81,9 +81,8 @@ def verifyNumeralForm(number):
         if not (primes[0][1] == 2 and primes[1][1] == 6 and primes[-1][1] == 7):
             return False
         else:
-            number = number/(primes[0]**2*primes[1]**6*primes[-1]**7)
+            number = number//primes[0]**2*primes[1]**6*primes[-1]**7
             verifyNumeralForm(number)
-
 
 def isitNumeral2(number):
     if number == 2:

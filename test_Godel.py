@@ -20,6 +20,27 @@ def verifyNumeralForm(number):
             verifyNumeralForm(number)
     return flag
 
+
+def primeFactorization(number):
+    a = 2
+    factors = []
+    myDict = {}
+    while a <= math.ceil(math.sqrt(number)):
+        if number%a != 0:
+            a += 1
+        else:
+            number = number//a
+            factors.append(a)
+    if number != 1:
+        factors.append(number)
+    for i in factors:
+        myDict[i] = CountValues(i,factors)
+    return myDict
+
+print(primeFactorization(20))
+
+
+
 #0
 #print('0')
 #print(2)
@@ -29,5 +50,6 @@ def verifyNumeralForm(number):
 #print(verifyNumeralForm(2**2*3**6*5**1*7**7))
 print('s(s(0))')
 print((2**2)*(3**6)*(5**2)*(7**6)*(11**1)*(13**7)*(17**7))
-print(primeFactorization(4607793427337100))
+print(primeFactorization(2429150201596471568662547100))
 
+print(verifyNumeralForm(2429150201596471568662547100))
