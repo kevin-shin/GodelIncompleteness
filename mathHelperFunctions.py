@@ -1,5 +1,6 @@
 import math
 
+
 ##---------MATH HELPER FUNCTIONS---------##
 
 def isitprime(n):
@@ -61,16 +62,6 @@ def dictToList(dictionary):
     list.sort()
     return list
 
-def isitNumeral(number):
-    if number == 2:
-        return True
-    else:
-        primes = dictToList(primeFactorization(number))
-        if primes[0][1] == 2 and primes[1][1] == 6 and primes[-1][1] == 7:
-            return True
-        else:
-            return False
-
 def verifyNumeralForm(number):
     primes = dictToList(primeFactorization(number))
     if number == 2:
@@ -84,14 +75,3 @@ def verifyNumeralForm(number):
             number = number//primes[0]**2*primes[1]**6*primes[-1]**7
             verifyNumeralForm(number)
 
-def isitNumeral2(number):
-    if number == 2:
-        return True
-    else:
-        primes = dictToList(primeFactorization(number))
-        if primes[0][1] == 2 and primes[1][1] == 6 and primes[-1][1] == 7:
-            return True
-        else:
-            return False
-
-isitNumeral(2)
