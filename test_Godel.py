@@ -29,3 +29,25 @@ def isVariable(number):
             if newNumber[i] != '8':
                 return False
         return True
+
+def isAddition(number):
+    newNumber = GodelNumbertoNumber(number)
+    return additionWrapper(newNumber)
+
+def additionWrapper(number):
+    flag = True
+    newNumber = str(number)
+    if not ((newNumber[0] == '3' and newNumber[1] == '6' and newNumber[-1] == '7')
+            and ',' not in newNumber):
+        return False
+    else:
+        if not (isNumeral(int(newNumber[2:newNumber.find(',')])) and
+                    isNumeral(int(newNumber[newNumber.find(','):]))
+            or isNumeral(int(newNumber[2:newNumber.find(',')])) and
+                    isVariable(int(newNumber[newNumber.find(','):]))
+            or isVariable(int(newNumber[2:newNumber.find(',')])) and
+                    isVariable(int(newNumber[newNumber.find(','):]))
+            or isVariable(int(newNumber[2:newNumber.find(',')])) and
+                    isNumeral(int(newNumber[newNumber.find(','):]))
+                ):
+            return False
