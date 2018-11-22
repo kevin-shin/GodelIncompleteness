@@ -4,6 +4,8 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include "GodelMachine.tab.h"
+
 
 void yyerror(const char* s) {
   fprintf(stderr, "%s\n", s);
@@ -16,7 +18,7 @@ void parseprint(char*);  // forward declaration of printing function
 %}
 
 
-%token ZERO SUCCESSOR PLUS TIMES EQUALS LPAREN RPAREN NEXT VARIABLE SUBSCRIPT NOT AND EXISTS END
+%token ZERO SUCCESSOR PLUS TIMES EQUALS LPAREN RPAREN NEXT VARIABLE NOT AND EXISTS END
 
 %%
 
@@ -27,13 +29,9 @@ S: L
 
 L: end {parseprint("ENDLINE");}
 | E1 end {parseprint("ARITHMETIC");}
-| statements end {parseprint("STATEMENTS");}
-| expressions end {parseprint("EXPRESSIONS");}
 ;
 end: END
 ;
-
-EXP:
 
 E1: PLUS LPAREN E1 NEXT E1
 | E2
@@ -47,7 +45,8 @@ int: ZERO
 | SUCCESSOR LPAREN int RPAREN {parseprint("Integer");}
 ;
 
-variable: VARIABLE variable |  
+variable: VARIABLE
+;
 %%
 
 /* After the next %% divider, we put the code at the end.  I included a printing function, just in case, but

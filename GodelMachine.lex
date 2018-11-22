@@ -8,6 +8,7 @@
 %{
 #include<stdio.h>
 #include<stdlib.h>
+#include "GodelMachine.tab.h"
 
 void printer(char*);  // Forward declaration of printing function
 
@@ -36,7 +37,6 @@ void printer(char*);  // Forward declaration of printing function
 (")") {printer ("RParen"); return RPAREN;}
 (",") {printer("Next"); return NEXT;}
 ("x") {printer("Variable"); return VARIABLE;}
-("|") {printer("Subscript"); return SUBSCRIPT;}
 ("~") {printer("Not"); return NOT;}
 ("&") {printer("And"); return AND;}
 ("E") {printer("Exists"); return EXISTS;}
