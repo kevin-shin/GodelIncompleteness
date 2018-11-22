@@ -27,26 +27,36 @@ S: L
 | L S
 ;
 
-L: end {parseprint("ENDLINE");}
-| E1 end {parseprint("ARITHMETIC");}
-;
-end: END
+L: END {parseprint("ENDLINE");}
+| EXPRESSIONS END {parseprint("Expressions")}
+| STATEMENTS END {parseprint("Statement")}
 ;
 
-E1: PLUS LPAREN E1 NEXT E1
+STATEMENTS: LPAREN EXPRESSIONS AND EXPRESSIONS RPAREN
+| EXISTS VARIABLE LPAREN EXPRESSIONS LPAREN
+| NOT EXPRESSIONS
+;
+
+EXPRESSIONS:
+| E1 EQUALS E1
+;
+
+E1: PLUS LPAREN E1 NEXT E1 RPAREN
 | E2
 ;
 
-E2: TIMES LPAREN E2 NEXT E2
-| int
+E2: TIMES LPAREN E2 NEXT E2 RPAREN
+| E3
+;
+
+E3: int
+| VARIABLE
 ;
 
 int: ZERO
 | SUCCESSOR LPAREN int RPAREN {parseprint("Integer");}
 ;
 
-variable: VARIABLE
-;
 %%
 
 /* After the next %% divider, we put the code at the end.  I included a printing function, just in case, but

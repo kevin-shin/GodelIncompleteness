@@ -360,8 +360,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 16
-#define YY_END_OF_BUFFER 17
+#define YY_NUM_RULES 15
+#define YY_END_OF_BUFFER 16
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -371,8 +371,8 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[22] =
     {   0,
-        0,    0,   17,   16,   15,   12,    6,    7,    4,    3,
-        8,    1,   14,    5,   13,    2,    9,   10,   11,   15,
+        0,    0,   16,   15,   14,   11,    6,    7,    4,    3,
+        8,    1,   13,    5,   12,    2,    9,   10,   14,    9,
         0
     } ;
 
@@ -416,9 +416,9 @@ static yyconst flex_int32_t yy_meta[17] =
 
 static yyconst flex_int16_t yy_base[22] =
     {   0,
-        0,    0,   19,   20,   16,   20,   20,   20,   20,   20,
-       20,   20,   20,   20,   20,   20,   20,   20,   20,   15,
-       20
+        0,    0,   21,   22,   18,   22,   22,   22,   22,   22,
+       22,   22,   22,   22,   22,   22,    4,   22,   16,    2,
+       22
     } ;
 
 static yyconst flex_int16_t yy_def[22] =
@@ -428,20 +428,20 @@ static yyconst flex_int16_t yy_def[22] =
         0
     } ;
 
-static yyconst flex_int16_t yy_nxt[37] =
+static yyconst flex_int16_t yy_nxt[39] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
-       14,   15,   16,   17,   18,   19,   20,   20,   21,    3,
-       21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
-       21,   21,   21,   21,   21,   21
+       14,   15,   16,   17,    4,   18,   20,   19,   20,   19,
+       21,    3,   21,   21,   21,   21,   21,   21,   21,   21,
+       21,   21,   21,   21,   21,   21,   21,   21
     } ;
 
-static yyconst flex_int16_t yy_chk[37] =
+static yyconst flex_int16_t yy_chk[39] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,   20,    5,    3,   21,
-       21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
-       21,   21,   21,   21,   21,   21
+        1,    1,    1,    1,    1,    1,   20,   19,   17,    5,
+        3,   21,   21,   21,   21,   21,   21,   21,   21,   21,
+       21,   21,   21,   21,   21,   21,   21,   21
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -467,6 +467,7 @@ char *yytext;
 #line 9 "GodelMachine.lex"
 #include<stdio.h>
 #include<stdlib.h>
+#include "GodelMachine.tab.h"
 
 void printer(char*);  // Forward declaration of printing function
 
@@ -481,7 +482,7 @@ void printer(char*);  // Forward declaration of printing function
  * any procedures you need for it should be declared at the bottom
  * of the file.
  */
-#line 485 "lex.yy.c"
+#line 486 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -663,9 +664,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 29 "GodelMachine.lex"
+#line 30 "GodelMachine.lex"
 
-#line 669 "lex.yy.c"
+#line 670 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -724,7 +725,7 @@ yy_match:
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 20 );
+		while ( yy_base[yy_current_state] != 22 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -750,86 +751,81 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 30 "GodelMachine.lex"
-{printer("Zero");}
+#line 31 "GodelMachine.lex"
+{printer("Zero"); return ZERO;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 31 "GodelMachine.lex"
-{printer("Successor"); }
+#line 32 "GodelMachine.lex"
+{printer("Successor"); return SUCCESSOR;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 32 "GodelMachine.lex"
-{printer("Plus"); }
+#line 33 "GodelMachine.lex"
+{printer("Plus"); return PLUS;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 33 "GodelMachine.lex"
-{printer ("Times");}
+#line 34 "GodelMachine.lex"
+{printer ("Times");return TIMES;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 34 "GodelMachine.lex"
-{printer("Assign"); }
+#line 35 "GodelMachine.lex"
+{printer("Assign"); return EQUALS;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 35 "GodelMachine.lex"
-{printer ("LParen"); }
+#line 36 "GodelMachine.lex"
+{printer ("LParen"); return LPAREN;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 36 "GodelMachine.lex"
-{printer ("RParen"); }
+#line 37 "GodelMachine.lex"
+{printer ("RParen"); return RPAREN;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 37 "GodelMachine.lex"
-{printer("Next");}
+#line 38 "GodelMachine.lex"
+{printer("Next"); return NEXT;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 38 "GodelMachine.lex"
-{printer("Variable"); }
+#line 39 "GodelMachine.lex"
+{printer("Variable"); return VARIABLE;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 39 "GodelMachine.lex"
-{printer("Subscript");}
+#line 40 "GodelMachine.lex"
+{printer("Not"); return NOT;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 40 "GodelMachine.lex"
-{printer("Not"); }
+#line 41 "GodelMachine.lex"
+{printer("And"); return AND;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 41 "GodelMachine.lex"
-{printer("And"); }
+#line 42 "GodelMachine.lex"
+{printer("Exists"); return EXISTS;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 42 "GodelMachine.lex"
-{printer("Exists"); }
+#line 43 "GodelMachine.lex"
+{printer("End"); return END;}
 	YY_BREAK
 case 14:
-YY_RULE_SETUP
-#line 43 "GodelMachine.lex"
-{printer("End"); }
-	YY_BREAK
-case 15:
-/* rule 15 can match eol */
+/* rule 14 can match eol */
 YY_RULE_SETUP
 #line 45 "GodelMachine.lex"
 ;  /*when see whitespace, do nothing*/
 	YY_BREAK
-case 16:
+case 15:
 YY_RULE_SETUP
 #line 47 "GodelMachine.lex"
 ECHO;
 	YY_BREAK
-#line 833 "lex.yy.c"
+#line 829 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 

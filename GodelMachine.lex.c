@@ -370,10 +370,11 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static yyconst flex_int16_t yy_accept[21] =
+static yyconst flex_int16_t yy_accept[22] =
     {   0,
         0,    0,   16,   15,   14,   11,    6,    7,    4,    3,
-        8,    1,   13,    5,   12,    2,    9,   10,   14,    0
+        8,    1,   13,    5,   12,    2,    9,   10,   14,    9,
+        0
     } ;
 
 static yyconst flex_int32_t yy_ec[256] =
@@ -391,7 +392,7 @@ static yyconst flex_int32_t yy_ec[256] =
 
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,   13,    1,    1,    1,    1,   14,
-        1,    1,    1,    1,    1,   15,    1,    1,    1,    1,
+        1,    1,    1,   15,    1,   16,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -408,38 +409,40 @@ static yyconst flex_int32_t yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst flex_int32_t yy_meta[16] =
+static yyconst flex_int32_t yy_meta[17] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1
+        1,    1,    1,    1,    1,    1
     } ;
 
-static yyconst flex_int16_t yy_base[21] =
+static yyconst flex_int16_t yy_base[22] =
     {   0,
-        0,    0,   18,   19,   15,   19,   19,   19,   19,   19,
-       19,   19,   19,   19,   19,   19,   19,   19,   14,   19
+        0,    0,   21,   22,   18,   22,   22,   22,   22,   22,
+       22,   22,   22,   22,   22,   22,    4,   22,   16,    2,
+       22
     } ;
 
-static yyconst flex_int16_t yy_def[21] =
+static yyconst flex_int16_t yy_def[22] =
     {   0,
-       20,    1,   20,   20,   20,   20,   20,   20,   20,   20,
-       20,   20,   20,   20,   20,   20,   20,   20,   20,    0
+       21,    1,   21,   21,   21,   21,   21,   21,   21,   21,
+       21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
+        0
     } ;
 
-static yyconst flex_int16_t yy_nxt[35] =
+static yyconst flex_int16_t yy_nxt[39] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
-       14,   15,   16,   17,   18,   19,   19,   20,    3,   20,
-       20,   20,   20,   20,   20,   20,   20,   20,   20,   20,
-       20,   20,   20,   20
+       14,   15,   16,   17,    4,   18,   20,   19,   20,   19,
+       21,    3,   21,   21,   21,   21,   21,   21,   21,   21,
+       21,   21,   21,   21,   21,   21,   21,   21
     } ;
 
-static yyconst flex_int16_t yy_chk[35] =
+static yyconst flex_int16_t yy_chk[39] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,   19,    5,    3,   20,   20,
-       20,   20,   20,   20,   20,   20,   20,   20,   20,   20,
-       20,   20,   20,   20
+        1,    1,    1,    1,    1,    1,   20,   19,   17,    5,
+        3,   21,   21,   21,   21,   21,   21,   21,   21,   21,
+       21,   21,   21,   21,   21,   21,   21,   21
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -480,7 +483,7 @@ void printer(char*);  // Forward declaration of printing function
  * any procedures you need for it should be declared at the bottom
  * of the file.
  */
-#line 484 "GodelMachine.lex.c"
+#line 487 "GodelMachine.lex.c"
 
 #define INITIAL 0
 
@@ -664,7 +667,7 @@ YY_DECL
     
 #line 30 "GodelMachine.lex"
 
-#line 668 "GodelMachine.lex.c"
+#line 671 "GodelMachine.lex.c"
 
 	if ( !(yy_init) )
 		{
@@ -717,13 +720,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 21 )
+				if ( yy_current_state >= 22 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 19 );
+		while ( yy_base[yy_current_state] != 22 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -823,7 +826,7 @@ YY_RULE_SETUP
 #line 47 "GodelMachine.lex"
 ECHO;
 	YY_BREAK
-#line 827 "GodelMachine.lex.c"
+#line 830 "GodelMachine.lex.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1115,7 +1118,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 21 )
+			if ( yy_current_state >= 22 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1143,11 +1146,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 21 )
+		if ( yy_current_state >= 22 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 20);
+	yy_is_jam = (yy_current_state == 21);
 
 	return yy_is_jam ? 0 : yy_current_state;
 }

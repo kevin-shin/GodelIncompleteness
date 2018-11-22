@@ -36,7 +36,7 @@ void printer(char*);  // Forward declaration of printing function
 ("(") {printer ("LParen"); return LPAREN;}
 (")") {printer ("RParen"); return RPAREN;}
 (",") {printer("Next"); return NEXT;}
-("x") {printer("Variable"); return VARIABLE;}
+("x")("|")* {printer("Variable"); return VARIABLE;}
 ("~") {printer("Not"); return NOT;}
 ("&") {printer("And"); return AND;}
 ("E") {printer("Exists"); return EXISTS;}
