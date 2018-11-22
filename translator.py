@@ -1,8 +1,8 @@
 import math
 from mathHelperFunctions import *
 
-symbolDict = {'0':1,'s':2,'+':3,'*':4,'=':5,'(':6,')':7,',':8,'x':9,'|':10,'~':11,'&':12,'∃':13}
-numDict = {1:'0',2:'s',3:'+',4:'*',5:'=',6:'(',7:')',8:',',9:'x',10:'|',11:'~',12:'&',13:'∃'}
+symbolDict = {'0':1,'s':2,'+':3,'*':4,'=':5,'(':6,')':7,'|':8,'x':9,',':10,'~':11,'&':12,'∃':13}
+numDict = {1:'0',2:'s',3:'+',4:'*',5:'=',6:'(',7:')',8:'|',9:'x',10:',',11:'~',12:'&',13:'∃'}
 
 '''
 Returns text associated with number based on encoding key
@@ -25,8 +25,18 @@ def textToNumber(text):
     return number
 
 '''helpful debugging tool, just has translation text'''
+
 def toPlainNumber(text):
     string = ''
     for character in text:
         string = string + str(symbolDict[character])
     return string
+
+
+def GodelNumbertoNumber(number):
+    primes = dictToList(primeFactorization(number))
+    number = ''
+    for tuple in primes:
+        number += str(tuple[1])
+    number = int(number)
+    return number
