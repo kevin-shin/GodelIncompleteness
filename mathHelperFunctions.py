@@ -1,10 +1,7 @@
 import math
 
-<<<<<<< HEAD
 symbolDict = {'0':1,'s':2,'+':3,'*':4,'=':5,'(':6,')':7,',':8,'x':9,'|':10,'~':11,'&':12,'∃':13}
 numDict = {1:'0',2:'s',3:'+',4:'*',5:'=',6:'(',7:')',8:',',9:'x',10:'|',11:'~',12:'&',13:'∃'}
-=======
->>>>>>> ca00c4028ff8bc124a063da59195ded7845ba981
 
 ##---------MATH HELPER FUNCTIONS---------##
 
@@ -42,40 +39,25 @@ def primeFactorization(number):
         if number%a != 0:
             a += 1
         else:
-<<<<<<< HEAD
             number = number//a
-=======
             number = int(number/a)
->>>>>>> ca00c4028ff8bc124a063da59195ded7845ba981
             factors.append(a)
     if number != 1:
         factors.append(number)
     for i in factors:
-<<<<<<< HEAD
         myDict[i] = countValues(i,factors)
     return myDict
 
+
 def countValues(k, inputList):
-=======
-        myDict[i] = CountValues(i,factors)
-    return myDict
-
-
-def CountValues(k, inputList):
->>>>>>> ca00c4028ff8bc124a063da59195ded7845ba981
     if len(inputList) == 0:
         return 0
     else:
         if inputList[0] == k:
-<<<<<<< HEAD
             return countValues(k, inputList[1:]) + 1
         else:
             return countValues(k, inputList[1:])
-=======
-            return CountValues(k, inputList[1:]) + 1
-        else:
-            return CountValues(k, inputList[1:])
->>>>>>> ca00c4028ff8bc124a063da59195ded7845ba981
+
 
 def dictToList(dictionary):
     list = []
@@ -83,8 +65,7 @@ def dictToList(dictionary):
         list.append((key,dictionary[key]))
     list.sort()
     return list
-<<<<<<< HEAD
-=======
+
 
 def verifyNumeralForm(number):
     primes = dictToList(primeFactorization(number))
@@ -99,4 +80,3 @@ def verifyNumeralForm(number):
             number = number//primes[0]**2*primes[1]**6*primes[-1]**7
             verifyNumeralForm(number)
 
->>>>>>> ca00c4028ff8bc124a063da59195ded7845ba981
