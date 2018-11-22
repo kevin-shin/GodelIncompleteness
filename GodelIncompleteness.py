@@ -156,7 +156,6 @@ def encodeWindow():
     global formulaCanvas2
     global formulaEntry
 
-
     encodeWindow = tk.Tk()
     encodeWindow.title("Encoding Formulas by Godel Numbering")
 
@@ -253,20 +252,17 @@ def convertFormula(event):
         primesToUse = generatePrimes(lenFormula)
 
         for char in returnedString:
-            returnedPrimes = returnedPrimes + str(primesToUse[i]) + '^' + char + "."
+            returnedPrimes = returnedPrimes + str(primesToUse[i]) + '^' + char + "*"
             i += 1
 
         for char in returnedString:
             returnedNumber *= primesToUse[j]**int(char)
             j += 1
 
+        returnedPrimes = returnedPrimes[:-1]
         formulaCanvas.create_text(150,10,text="Converted Into Language: "+returnedString, justify=tk.LEFT)
         formulaCanvas.create_text(150,30,text="Encoded into primes: "+returnedPrimes,justify=tk.LEFT)
         formulaCanvas.create_text(150,50,text="Godel Number: "+str(returnedNumber), justify=tk.LEFT)
-
-
-
-
 
 
 

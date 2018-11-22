@@ -1,5 +1,7 @@
 import math
 
+symbolDict = {'0':1,'s':2,'+':3,'*':4,'=':5,'(':6,')':7,',':8,'x':9,'|':10,'~':11,'&':12,'∃':13}
+numDict = {1:'0',2:'s',3:'+',4:'*',5:'=',6:'(',7:')',8:',',9:'x',10:'|',11:'~',12:'&',13:'∃'}
 
 ##---------MATH HELPER FUNCTIONS---------##
 
@@ -37,23 +39,22 @@ def primeFactorization(number):
         if number%a != 0:
             a += 1
         else:
-            number = int(number/a)
+            number = number//a
             factors.append(a)
     if number != 1:
         factors.append(number)
     for i in factors:
-        myDict[i] = CountValues(i,factors)
+        myDict[i] = countValues(i,factors)
     return myDict
 
-
-def CountValues(k, inputList):
+def countValues(k, inputList):
     if len(inputList) == 0:
         return 0
     else:
         if inputList[0] == k:
-            return CountValues(k, inputList[1:]) + 1
+            return countValues(k, inputList[1:]) + 1
         else:
-            return CountValues(k, inputList[1:])
+            return countValues(k, inputList[1:])
 
 def dictToList(dictionary):
     list = []
@@ -61,17 +62,3 @@ def dictToList(dictionary):
         list.append((key,dictionary[key]))
     list.sort()
     return list
-
-def verifyNumeralForm(number):
-    primes = dictToList(primeFactorization(number))
-    if number == 2:
-        return True
-    if len(primes) == 1 and primes[0][1] == 1:
-        return True
-    else:
-        if not (primes[0][1] == 2 and primes[1][1] == 6 and primes[-1][1] == 7):
-            return False
-        else:
-            number = number//primes[0]**2*primes[1]**6*primes[-1]**7
-            verifyNumeralForm(number)
-
