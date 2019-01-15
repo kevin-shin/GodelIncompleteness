@@ -34,43 +34,47 @@ def t_error(t):
 lex.lex()
 
 precedence = (
-    ('left', 'PLUS', 'MINUS'),
-    ('left', 'TIMES', 'DIVIDE'))
+    ('left', 'PLUS'),
+    ('left', 'TIMES'),
+)
 
 def p_start(p):
-    '''S: L
+    '''S : L
         | L S'''
     print(p[0] + "Start Variable")
 
 
 def p_l(p):
-    '''L: END
+    '''L : END
         | EXPRESSIONS END
         | STATEMENTS END'''
 
 def p_statement(p):
-    '''STATEMENTS: LPAREN EXPRESSIONS AND EXPRESSIONS RPAREN
+    '''STATEMENTS : LPAREN EXPRESSIONS AND EXPRESSIONS RPAREN
                  | EXISTS VARIABLE LPAREN EXPRESSIONS LPAREN
                  | NOT EXPRESSIONS'''
 
 def p_expression(p):
-    '''EXPRESSIONS: | E1 EQUALS E1'''
+    '''EXPRESSIONS : E1 EQUALS E1'''
 
 def p_e1(p):
-    '''E1: PLUS LPAREN E1 NEXT E1 RPAREN
-         | E2'''
+    '''E1 : PLUS LPAREN E1 NEXT E1 RPAREN
+          | E2'''
 
 def p_e2(p):
-    '''E2: TIMES LPAREN E2 NEXT E2 RPAREN
+    '''E2 : TIMES LPAREN E2 NEXT E2 RPAREN
          | E3'''
 
 def p_e3(p):
-    '''E3: int
+    '''E3 : int
          | VARIABLE'''
 
 def p_int(p):
-    '''int: ZERO
+    '''int : ZERO
           | SUCCESSOR LPAREN int RPAREN'''
+
+def p_error(p):
+    print("Syntax error at '%s'" % p.value)
 
 yacc.yacc()
 
