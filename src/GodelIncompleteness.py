@@ -1,8 +1,9 @@
 import tkinter as tk
 from tkinter import *
-import math
-from mathHelperFunctions import *
+
 from PIL import ImageTk, Image
+
+from src.mathHelperFunctions import *
 
 welcomeWindow = None
 

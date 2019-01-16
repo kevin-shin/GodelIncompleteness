@@ -1,6 +1,6 @@
-import math
 from mathHelperFunctions import *
-from translator import *
+
+from src.translator import *
 
 
 def isNumeral(number):

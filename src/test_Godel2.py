@@ -1,4 +1,3 @@
-from mathHelperFunctions import *
 import math
 
 def primeFactorization(number):
