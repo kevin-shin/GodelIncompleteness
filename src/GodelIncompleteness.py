@@ -6,40 +6,34 @@ from src.mathHelperFunctions import *
 from src.parser import *
 
 
-
 welcomeWindow = None
 
 symbolDict = {'0':1,'s':2,'+':3,'*':4,'=':5,'(':6,')':7,'|':8,'x':9,',':10,'~':11,'&':12,'∃':13}
 numDict = {1:'0',2:'s',3:'+',4:'*',5:'=',6:'(',7:')',8:'|',9:'x',10:',',11:'~',12:'&',13:'∃'}
 
-'''differs from Crossley symbols because user needs to be able to type in'''
+'''Differs from Crossley symbols because user needs to be able to type in'''
 
 def GUIMain():
     '''This function is called when the program is run.'''
 
     global welcomeWindow
-
-    #this creates our welcome window
     welcomeWindow = tk.Tk()
     welcomeWindow["bg"] = "white"
     welcomeWindow.title("Gödel Incompleteness Theorem")
 
 
-    #design labels for the window
     welcomeLabel = Label(welcomeWindow)
     welcomeLabel["text"] = "Gödel Incompleteness Theorem" + "\n" + "Advanced Symbolic Logic"
     welcomeLabel["font"] = "Arial 24"
     welcomeLabel["bg"] = "white"
     welcomeLabel.grid(row=0, column=1,padx=(50,50),pady=(100,15))
 
-    #design labels for the window
     welcomeLabel = Label(welcomeWindow)
-    welcomeLabel["text"] = "Created by Kevin Shin on 9/19/18"
+    welcomeLabel["text"] = "Created by Kevin Shin , 2018-2019"
     welcomeLabel["font"] = "Arial 14"
     welcomeLabel["bg"] = "white"
     welcomeLabel.grid(row=2, column=1,padx=(50,50),pady=(0,50))
 
-    #the import button
     startButton = Button(welcomeWindow)
     startButton["text"] = "Start"
     startButton["font"] = "Arial 12"
@@ -69,7 +63,6 @@ def introWindow():
     Frame1["bg"] = "white"
     Frame1.grid(row=1, column=2)
 
-    # buttons corresponding to the functions
     axiomButton = Button(Frame1)
     axiomButton["text"] = "Axioms"
     axiomButton["font"] = "Arial 12"
@@ -115,7 +108,6 @@ def introWindow():
     introWindow.mainloop()
 
 
-
 def axiomWindow():
     '''displays axioms, does nothing fancy - need latex stuff in here'''
 
@@ -126,7 +118,7 @@ def axiomWindow():
     axiomWindow.geometry("1000x1000")
     axiomWindow.title("Axioms")
 
-    axiomImage = ImageTk.PhotoImage(Image.open('Axioms.jpg'))
+    axiomImage = ImageTk.PhotoImage(Image.open('../images/Axioms.jpg'))
 
     axiomCanvas = Canvas(axiomWindow)
     axiomCanvas.pack(expand=YES, fill=BOTH)
@@ -142,7 +134,7 @@ def numberWindow():
     numberingWindow.geometry("500x500")
     numberingWindow.title("Godel Numbering System by Crossley")
 
-    godelImage = ImageTk.PhotoImage(Image.open('GodelKey.jpg'))
+    godelImage = ImageTk.PhotoImage(Image.open('../images/GodelKey.jpg'))
     numberingCanvas = Canvas(numberingWindow)
     numberingCanvas.pack(expand=YES, fill=BOTH)
     numberingCanvas.create_image(50, 10, image=godelImage, anchor=NW)
@@ -157,28 +149,32 @@ def encodeWindow():
     global formulaCanvas
     global formulaCanvas2
     global formulaEntry
+    global languageText
 
     encodeWindow = tk.Tk()
+    encodeWindow.geometry("1000x1000")
     encodeWindow.title("Encoding Formulas by Godel Numbering")
 
     saveLabel = Label(encodeWindow, anchor="w")
     saveLabel["text"] = "Enter a formula:"
     saveLabel["font"] = "Arial 14"
     saveLabel["bg"] = "white"
-    saveLabel.grid(row=0, column=1,pady=(15,5))
+    saveLabel.grid(row=0, column=0,pady=(15,5))
 
     formulaEntry = Entry(encodeWindow, bg = 'white', bd = 0.5, font = "Arial 14",
-                justify = CENTER, width=40)
-    formulaEntry.grid(row=2,column=1,padx=10,pady=(0,15))
+                justify= CENTER, width=100)
+    formulaEntry.grid(row=2,column=0,padx=10,pady=(0,15))
     formulaEntry.bind("<Return>",convertFormula)
 
-    formulaCanvas = Canvas(encodeWindow)
-    formulaCanvas.pack(expand=True, fill=tk.BOTH)
-    formulaCanvas.grid(row=3, column=1, padx=30, pady=5)
+    formulaCanvas = Label(encodeWindow)
+    formulaCanvas.pack(fill=BOTH, expand=True)
+    formulaCanvas.grid(row=3, column=0, padx=30, pady=5)
+    languageText = StringVar()
+    formulaCanvas["textvariable"] = languageText
 
-    formulaCanvas2 = Canvas(encodeWindow)
-    formulaCanvas2.pack(expand=True, fill=tk.BOTH)
-    formulaCanvas2.grid(row=4, column=1, padx=30, pady=5)
+    formulaCanvas2 = Label(encodeWindow)
+    formulaCanvas2.pack(fill=BOTH, expand=True)
+    formulaCanvas2.grid(row=4, column=0, padx=30, pady=5)
 
 def decodeWindow():
 
@@ -233,14 +229,11 @@ def convertFormula(event):
     global returnedNumber
 
     if event.keysym == "Return": # examples of how to check what key
-        formulaCanvas.delete("all")
+        languageText.set("")
 
     userText = formulaEntry.get()
-    print("Successfully read: " + userText)
     userText += ";"
-    print("Parsing...")
     yacc.parse(userText)
-    print("Parsed!")
     if not yacc.parsedCorrectly:
             formulaCanvas.create_text(150, 10, text="Parsed Incorrectly. Not well formed.")
             yacc.parsedCorrectly = True
@@ -278,9 +271,12 @@ def convertFormula(event):
                 j += 1
 
             returnedPrimes = returnedPrimes[:-1]
+            languageText.set("Encoded into primes: "+ returnedPrimes)
+            '''
             formulaCanvas.create_text(150,10,text="Converted Into Language: "+returnedString, justify=tk.LEFT)
             formulaCanvas.create_text(150,30,text="Encoded into primes: "+returnedPrimes,justify=tk.LEFT)
             formulaCanvas.create_text(150,50,text="Godel Number: "+str(returnedNumber), justify=tk.LEFT)
+            '''
     print("Formula Converted")
 
 GUIMain()
