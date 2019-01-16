@@ -1,6 +1,8 @@
 import ply.lex as lex
 import ply.yacc as yacc
 
+parsedCorrectly = True
+
 tokens = ['ZERO', 'SUCCESSOR', 'PLUS', 'TIMES', 'EQUALS',
           'LPAREN', 'RPAREN', 'NEXT', 'VARIABLE', 'NOT', 'AND',
           'EXISTS', 'END']
@@ -92,15 +94,16 @@ def p_int(p):
     p[0] = None
 
 def p_error(p):
+    global parsedCorrectly
     print("Error, not a well formed sentence of the language.")
-
-
+    yacc.parsedCorrectly = False
 
 yacc.yacc()
 
-while True:
-    try:
-        s = input('>>> ')   # use input() on Python 3
-    except EOFError:
-        break
-    yacc.parse(s)
+
+#while True:
+#    try:
+#        s = input('>>> ')   # use input() on Python 3
+#    except EOFError:
+#        break
+#    yacc.parse(s)

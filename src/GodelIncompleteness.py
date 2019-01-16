@@ -1,9 +1,11 @@
 import tkinter as tk
 from tkinter import *
-
 from PIL import ImageTk, Image
 
 from src.mathHelperFunctions import *
+from src.parser import *
+
+
 
 welcomeWindow = None
 
@@ -12,10 +14,8 @@ numDict = {1:'0',2:'s',3:'+',4:'*',5:'=',6:'(',7:')',8:'|',9:'x',10:',',11:'~',1
 
 '''differs from Crossley symbols because user needs to be able to type in'''
 
-
-
 def GUIMain():
-    '''Our GUI function. This function is called when the program is run. It creates a welcome window with a label, image, and import button.'''
+    '''This function is called when the program is run.'''
 
     global welcomeWindow
 
@@ -173,11 +173,11 @@ def encodeWindow():
     formulaEntry.bind("<Return>",convertFormula)
 
     formulaCanvas = Canvas(encodeWindow)
-    formulaCanvas.pack(expand=TRUE, fill='both')
+    formulaCanvas.pack(expand=True, fill=tk.BOTH)
     formulaCanvas.grid(row=3, column=1, padx=30, pady=5)
 
     formulaCanvas2 = Canvas(encodeWindow)
-    formulaCanvas2.pack(expand=TRUE, fill='both')
+    formulaCanvas2.pack(expand=True, fill=tk.BOTH)
     formulaCanvas2.grid(row=4, column=1, padx=30, pady=5)
 
 def decodeWindow():
@@ -213,6 +213,7 @@ def decodeWindow():
     numberCanvas2.grid(row=4, column=1, padx=30, pady=5)
 '''
 
+
 def numberToText(number):
     primes = dictToList(primeFactorization(number))
     text =''
@@ -228,43 +229,58 @@ def decodeOutput(event):
         numberCanvas.create_text(150, 50, text=formula, justify=tk.LEFT)
 
 def convertFormula(event):
-    '''Takes in an event, in this case the pressing of the Return key by the user. When the Return key is pressed, this function will
-    take the picture currently on the canvas and save this image under the name entered by the user in saveWindow.'''
     global saveText
     global returnedNumber
 
     if event.keysym == "Return": # examples of how to check what key
         formulaCanvas.delete("all")
 
-        i = 0
-        j = 0
+    userText = formulaEntry.get()
+    print("Successfully read: " + userText)
+    userText += ";"
+    print("Parsing...")
+    yacc.parse(userText)
+    print("Parsed!")
+    if not yacc.parsedCorrectly:
+            formulaCanvas.create_text(150, 10, text="Parsed Incorrectly. Not well formed.")
+            yacc.parsedCorrectly = True
+    else:
+        userText = userText[:-1]
 
-        returnedNumber = 1
-        returnedString = ''
-        returnedPrimes = ''
+        if userText == '0':
+            formulaCanvas.create_text(150, 10, text="Converted Into Language: 1", justify=tk.LEFT)
+            formulaCanvas.create_text(150, 30, text="Encoded into primes: 2^1", justify=tk.LEFT)
+            formulaCanvas.create_text(150, 50, text="Godel Number: 2", justify=tk.LEFT)
 
-        userText = formulaEntry.get()
+        else:
+            i = 0
+            j = 0
 
-        for char in userText:
-            if char not in symbolDict.keys():
-                formulaCanvas.create_text(150,10,text="Please use the Godel Numbering specified.", justify=tk.LEFT)
-            else:
-                returnedString = returnedString + str(symbolDict[char])
-        lenFormula = len(returnedString)
-        primesToUse = generatePrimes(lenFormula)
+            returnedNumber = 1
+            returnedString = ''
+            returnedPrimes = ''
 
-        for char in returnedString:
-            returnedPrimes = returnedPrimes + str(primesToUse[i]) + '^' + char + "*"
-            returnedPrimes = returnedPrimes + str(primesToUse[i]) + '^' + char + "."
-            i += 1
+            for char in userText:
+                if char not in symbolDict.keys():
+                    formulaCanvas.create_text(150,10,text="Please use the Godel Numbering specified.", justify=tk.LEFT)
+                else:
+                    returnedString = returnedString + str(symbolDict[char])
+            lenFormula = len(returnedString)
+            primesToUse = generatePrimes(lenFormula)
 
-        for char in returnedString:
-            returnedNumber *= primesToUse[j]**int(char)
-            j += 1
-        returnedPrimes = returnedPrimes[:-1]
-        formulaCanvas.create_text(150,10,text="Converted Into Language: "+returnedString, justify=tk.LEFT)
-        formulaCanvas.create_text(150,30,text="Encoded into primes: "+returnedPrimes,justify=tk.LEFT)
-        formulaCanvas.create_text(150,50,text="Godel Number: "+str(returnedNumber), justify=tk.LEFT)
+            for char in returnedString:
+                returnedPrimes = returnedPrimes + str(primesToUse[i]) + '^' + char + "*"
+                returnedPrimes = returnedPrimes + str(primesToUse[i]) + '^' + char + "."
+                i += 1
 
+            for char in returnedString:
+                returnedNumber *= primesToUse[j]**int(char)
+                j += 1
+
+            returnedPrimes = returnedPrimes[:-1]
+            formulaCanvas.create_text(150,10,text="Converted Into Language: "+returnedString, justify=tk.LEFT)
+            formulaCanvas.create_text(150,30,text="Encoded into primes: "+returnedPrimes,justify=tk.LEFT)
+            formulaCanvas.create_text(150,50,text="Godel Number: "+str(returnedNumber), justify=tk.LEFT)
+    print("Formula Converted")
 
 GUIMain()

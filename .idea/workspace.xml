@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6563ff72-2629-4275-9955-e70cdd2e8941" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/GodelMachineRound2.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GodelMachine.py" afterPath="$PROJECT_DIR$/drafts/GodelMachine.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ply/yacc.py" afterPath="$PROJECT_DIR$/ply/yacc.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GodelIncompleteness.py" afterPath="$PROJECT_DIR$/src/GodelIncompleteness.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser.py" afterPath="$PROJECT_DIR$/src/parser.py" />
     </list>
@@ -15,33 +14,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="calc.py" pinned="false" current-in-tab="true">
-              <entry file="file://$USER_HOME$/Downloads/ply-3.11 2/example/calc/calc.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="15">
-                    <caret line="83" column="29" lean-forward="false" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="parser.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="75" column="44" lean-forward="false" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
+            <state relative-caret-position="104">
+              <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -49,17 +28,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GodelIncompleteness.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GodelIncompleteness.py">
+      <file leaf-file-name="yacc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ply/yacc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="268" column="0" lean-forward="false" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
+            <state relative-caret-position="1294">
+              <caret line="167" column="15" lean-forward="false" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mathHelperFunctions.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GodelIncompleteness.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GodelIncompleteness.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="250" column="70" lean-forward="false" selection-start-line="250" selection-start-column="70" selection-end-line="250" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="translator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/translator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="15" lean-forward="true" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mathHelperFunctions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mathHelperFunctions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -84,6 +85,10 @@
       <find>symbolDict</find>
       <find>yaccproduction</find>
       <find>value</find>
+      <find>parse</find>
+      <find>parseopt_notrack</find>
+      <find>error</find>
+      <find>p_error</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,15 +111,16 @@
         <option value="$PROJECT_DIR$/test_Godel.py" />
         <option value="$PROJECT_DIR$/calculator_example.py" />
         <option value="$PROJECT_DIR$/parser.py" />
-        <option value="$PROJECT_DIR$/src/GodelIncompleteness.py" />
+        <option value="$PROJECT_DIR$/ply/yacc.py" />
         <option value="$PROJECT_DIR$/src/parser.py" />
+        <option value="$PROJECT_DIR$/src/GodelIncompleteness.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="27" />
+    <option name="x" value="436" />
     <option name="y" value="23" />
-    <option name="width" value="1253" />
+    <option name="width" value="844" />
     <option name="height" value="713" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -141,6 +147,11 @@
             <path>
               <item name="GodelIncompleteness" type="b2602c69:ProjectViewProjectNode" />
               <item name="GodelIncompleteness" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GodelIncompleteness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GodelIncompleteness" type="462c0819:PsiDirectoryNode" />
+              <item name="ply" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GodelIncompleteness" type="b2602c69:ProjectViewProjectNode" />
@@ -175,7 +186,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.parser">
+  <component name="RunManager" selected="Python.GodelIncompleteness">
+    <configuration name="GodelIncompleteness" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="GodelIncompleteness" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/GodelIncompleteness.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="calc" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -244,37 +272,20 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="translator" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="GodelIncompleteness" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/translator.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.translator" />
-      <item index="1" class="java.lang.String" itemvalue="Python.test_Godel" />
-      <item index="2" class="java.lang.String" itemvalue="Python.parser" />
-      <item index="3" class="java.lang.String" itemvalue="Python.calc" />
-      <item index="4" class="java.lang.String" itemvalue="Python.calculator_example" />
+      <item index="0" class="java.lang.String" itemvalue="Python.test_Godel" />
+      <item index="1" class="java.lang.String" itemvalue="Python.parser" />
+      <item index="2" class="java.lang.String" itemvalue="Python.calc" />
+      <item index="3" class="java.lang.String" itemvalue="Python.calculator_example" />
+      <item index="4" class="java.lang.String" itemvalue="Python.GodelIncompleteness" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.parser" />
-        <item index="1" class="java.lang.String" itemvalue="Python.calculator_example" />
-        <item index="2" class="java.lang.String" itemvalue="Python.calc" />
-        <item index="3" class="java.lang.String" itemvalue="Python.test_Godel" />
-        <item index="4" class="java.lang.String" itemvalue="Python.translator" />
+        <item index="0" class="java.lang.String" itemvalue="Python.GodelIncompleteness" />
+        <item index="1" class="java.lang.String" itemvalue="Python.parser" />
+        <item index="2" class="java.lang.String" itemvalue="Python.calculator_example" />
+        <item index="3" class="java.lang.String" itemvalue="Python.calc" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test_Godel" />
       </list>
     </recent_temporary>
   </component>
@@ -394,13 +405,20 @@
       <option name="project" value="LOCAL" />
       <updated>1547661050834</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="More organization">
+      <created>1547661317252</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1547661317252</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="27" y="23" width="1253" height="713" extended-state="0" />
+    <frame x="436" y="23" width="844" height="713" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25598678" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31421447" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2524272" sideWeight="0.5035461" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32524273" sideWeight="0.4964539" order="2" side_tool="false" content_ui="tabs" />
@@ -460,22 +478,16 @@
     <MESSAGE value="Getting value errors, and not sure why, but parsing runs. Read value part of PLY a little more carefully." />
     <MESSAGE value="Wait - it works..." />
     <MESSAGE value="Organize some files, next steps are to link the GUI with the parser – should be relatively straightforward" />
-    <option name="LAST_COMMIT_MESSAGE" value="Organize some files, next steps are to link the GUI with the parser – should be relatively straightforward" />
+    <MESSAGE value="More organization" />
+    <option name="LAST_COMMIT_MESSAGE" value="More organization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/drafts/GodelMachine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GodelIncompleteness.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -699,13 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/translator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/ply-3.11 2/example/BASIC/basiclex.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
@@ -735,22 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/ply-3.11 2/example/calc/calc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="83" column="29" lean-forward="false" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ply/yacc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="211" column="43" lean-forward="false" selection-start-line="211" selection-start-column="43" selection-end-line="211" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ply/lex.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7005">
@@ -777,22 +766,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GodelIncompleteness.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="268" column="0" lean-forward="false" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mathHelperFunctions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/parsetab.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
@@ -801,13 +774,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/ply-3.11 2/example/calc/calc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="92" column="27" lean-forward="true" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23430">
+          <caret line="1564" column="12" lean-forward="true" selection-start-line="1564" selection-start-column="12" selection-end-line="1564" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/translator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="15" lean-forward="true" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="75" column="44" lean-forward="false" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
+        <state relative-caret-position="104">
+          <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ply/yacc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1294">
+          <caret line="167" column="15" lean-forward="false" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GodelIncompleteness.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="250" column="70" lean-forward="false" selection-start-line="250" selection-start-column="70" selection-end-line="250" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mathHelperFunctions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
