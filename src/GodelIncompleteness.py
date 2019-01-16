@@ -267,5 +267,4 @@ def convertFormula(event):
         formulaCanvas.create_text(150,50,text="Godel Number: "+str(returnedNumber), justify=tk.LEFT)
 
 
-
 GUIMain()

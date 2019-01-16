@@ -7,8 +7,8 @@ tokens = ['ZERO', 'SUCCESSOR', 'PLUS', 'TIMES', 'EQUALS',
 
 #TOKENS
 
-#t_ZERO = r'0'
-#t_SUCCESSOR = r's'
+t_ZERO = r'0'
+t_SUCCESSOR = r's'
 t_PLUS = r'\+'
 t_TIMES = r'\*'
 t_EQUALS = r'='
@@ -21,15 +21,15 @@ t_AND = r'\&'
 t_EXISTS = r'E'
 t_END = r'\;'
 
-def t_ZERO(t):
-    r'0'
-    t.value = 0
-    return t
+#def t_ZERO(t):
+#    r'0'
+#    t.value = 0
+#    return t
 
-def t_SUCCESSOR(t):
-    r's'
-    t.value = "s"
-    return t
+#def t_SUCCESSOR(t):
+#    r's'
+#    t.value = "s"
+#    return t
 
 def t_newline(t):
     r'\n+'
@@ -74,7 +74,6 @@ def p_expression(p):
 def p_e1(p):
     '''E1 : E2
           | PLUS LPAREN E1 NEXT E1 RPAREN'''
-    print("Plus Recognized")
     p[0] = None
 
 def p_e2(p):
