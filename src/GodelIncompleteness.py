@@ -29,7 +29,7 @@ def GUIMain():
     welcomeLabel.grid(row=0, column=1,padx=(50,50),pady=(100,15))
 
     welcomeLabel = Label(welcomeWindow)
-    welcomeLabel["text"] = "Created by Kevin Shin , 2018-2019"
+    welcomeLabel["text"] = "Created by Kevin Shin, 2018-2019"
     welcomeLabel["font"] = "Arial 14"
     welcomeLabel["bg"] = "white"
     welcomeLabel.grid(row=2, column=1,padx=(50,50),pady=(0,50))
@@ -239,7 +239,6 @@ def convertFormula(event):
             yacc.parsedCorrectly = True
     else:
         userText = userText[:-1]
-
         if userText == '0':
             formulaCanvas.create_text(150, 10, text="Converted Into Language: 1", justify=tk.LEFT)
             formulaCanvas.create_text(150, 30, text="Encoded into primes: 2^1", justify=tk.LEFT)
