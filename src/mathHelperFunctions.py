@@ -1,8 +1,8 @@
 # MATH HELPER FUNCTIONS
 '''
 This is the file which stores all the functions responsible for the encoding to Godel numbers. Essentially, we need
-the capacity to generate an arbitrary number of prime numbers,
-
+the capacity to generate an arbitrary number of prime numbers, prime factorize a given number, and combine this information
+in a useful way so that the GUI can present it.
 '''
 
 import math
