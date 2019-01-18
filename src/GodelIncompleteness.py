@@ -42,6 +42,8 @@ github repository at: https://github.com/kevin-shin/GodelIncompleteness.
 
 '''
 
+#-----IMPORTS-----#
+
 import tkinter as tk
 import webbrowser
 from tkinter import *
@@ -50,15 +52,21 @@ from PIL import ImageTk, Image
 from src.mathHelperFunctions import *
 from src.parser import *
 
-url = "https://plato.stanford.edu/entries/goedel-incompleteness/"
 
+#-----VARIABLES-----#
+
+
+url = "https://plato.stanford.edu/entries/goedel-incompleteness/" #Provided reference for the remainder of the proof
+
+#Crossley Symbols. Differs slightly from printed edition for ease of user input.
 symbolDict = {'0':1,'s':2,'+':3,'*':4,'=':5,'(':6,')':7,'|':8,'x':9,',':10,'~':11,'&':12,'∃':13}
 numDict = {1:'0',2:'s',3:'+',4:'*',5:'=',6:'(',7:')',8:'|',9:'x',10:',',11:'~',12:'&',13:'∃'}
 
-'''Differs from Crossley symbols because user needs to be able to type in'''
 
 def GUIMain():
-    '''This function is called when the program is run.'''
+    '''
+    Launches main GUI window.
+    '''
 
     global welcomeWindow
     welcomeWindow = tk.Tk()
@@ -89,8 +97,9 @@ def GUIMain():
 
 
 def introWindow():
-    '''write some intro text here
-    maybe contains buttons which go to different tools'''
+    '''
+    Introduction window. Menu of buttons along with introductory text."
+    '''
 
     introWindow = tk.Tk()
     introWindow.title("Axioms and Language")
@@ -98,6 +107,7 @@ def introWindow():
     introLabel = Label(introWindow)
     introLabel["bg"] = "white"
     introLabel.grid(row=0, column=0)
+
     introLabel["text"] = "SOME INTRO TEXT HERE ABOUT GODEL AND INCOMPLETENESS"
 
 
@@ -150,7 +160,9 @@ def introWindow():
 
 
 def axiomWindow():
-    '''displays axioms, does nothing fancy - need latex stuff in here'''
+    '''
+    Window which displays axioms.
+    '''
 
     global axiomWindow
     global welcomeWindow
@@ -169,6 +181,9 @@ def axiomWindow():
 
 
 def numberWindow():
+    '''
+    Window which displays Godel symbols.
+    '''
     global numberingWindow
 
     numberingWindow = tk.Tk()
@@ -184,8 +199,12 @@ def numberWindow():
 
 
 def encodeWindow():
+    '''
+    Window linked to encoding functions. Presents an entry box, in which users are able to type in sentences. On hitting
+    the Enter/Return key, the window will either return the encoding, displaying the translation into the encoding as well
+    as the actual number, or alert the user that the sentence does not follow the encoding or syntax provided.
 
-    '''takes in a string, converts into Godel's Number'''
+    '''
 
     global formulaLabel
     global formulaEntry
@@ -222,8 +241,11 @@ def encodeWindow():
     formulaLabel["textvariable"] = languageText
 
 def decodeWindow():
-
-    '''takes in number, outputs string'''
+    '''
+    Window linked to decoding functions. An entry box is provided for the user to enter a number. If the number is the
+    Godel number of a valid formula, the formula is returned. If not, the user is alerted that the number does not correspond
+    to any sentence.
+    '''
 
     global formulaLabel
     global numberEntry
@@ -268,6 +290,15 @@ def decodeOutput(event):
             yacc.parsedCorrectly = True
 
 def convertFormula(event):
+    '''
+    Gathers text from the entry box in Encode Window. If the parser is able to generate the formula, it is well formed,
+    making the boolean "parsedCorrectly" true. The encoding is initiated, and the result is displayed in the label
+    on the window. If not, the text is set to reflect incorrect parsing. The function also alerts the user if one of the
+    characters are not defined according to the language.
+
+    :param event: User action.
+    :return:
+    '''
     global saveText
     global returnedNumber
 
@@ -318,8 +349,11 @@ def convertFormula(event):
                              "Godel Number: " + str(returnedNumber))
 
 def showProof():
-    webbrowser.open_new(url)
+    '''
+    Linked to Proof button. Opens Stanford's webpage on Godel's Incompleteness Theorem.
 
+    '''
+    webbrowser.open_new(url)
 
 
 GUIMain()

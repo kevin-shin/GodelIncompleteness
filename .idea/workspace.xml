@@ -39,10 +39,10 @@
       <file leaf-file-name="GodelIncompleteness.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GodelIncompleteness.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="451">
+              <caret line="357" column="0" lean-forward="false" selection-start-line="357" selection-start-column="0" selection-end-line="357" selection-end-column="0" />
               <folding>
-                <element signature="e#3496#3516#0" expanded="true" />
+                <element signature="e#3517#3537#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -454,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547830408549</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Main intro done. Onto docstrings and comments.">
+      <created>1547831986865</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1547831986865</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -526,11 +533,19 @@
     <MESSAGE value="More fixing, part 1." />
     <MESSAGE value="Fixing - interface of Encode Window updated, and Decode Window now tells you whether the sentence is well formed." />
     <MESSAGE value="Functionality is in a good place. Minor bug when keyboard focus shifts from encode to decode window, not sure if focus is even the problem. COme back to this later. Maybe worth pausing here and putting some work into writing docs and comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="Functionality is in a good place. Minor bug when keyboard focus shifts from encode to decode window, not sure if focus is even the problem. COme back to this later. Maybe worth pausing here and putting some work into writing docs and comments." />
+    <MESSAGE value="Main intro done. Onto docstrings and comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="Main intro done. Onto docstrings and comments." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/GodelIncompleteness.py</url>
+          <line>110</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -862,10 +877,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GodelIncompleteness.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="451">
+          <caret line="357" column="0" lean-forward="false" selection-start-line="357" selection-start-column="0" selection-end-line="357" selection-end-column="0" />
           <folding>
-            <element signature="e#3496#3516#0" expanded="true" />
+            <element signature="e#3517#3537#0" expanded="true" />
           </folding>
         </state>
       </provider>
