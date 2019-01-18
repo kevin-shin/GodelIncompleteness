@@ -26,6 +26,15 @@ Another important intention behind this project was to provide this interface as
 the complex and abstract nature of the proof. Although Godel numbering is explained and then forgotten about, students are encouraged to remember that the entire proof hinges upon the ability to use such a numbering to use arithmetic to talk about arithmetic, which leads to the Godel sentence. Thus, although semantically a recursive process, the importance of this portion of the proof cannot be understated. The idea is that if this process can be automated and presented in an intuitive way, students will be able to understand the theoretical moves Godel makes more clearly.
 
 
+### Further Notes
+
+There are some acknowledged improvements which could be made including but not limited to the following:
+- Text on the introductory window
+- allowing user to specify their own encodings
+- making use of the debugger tool of PLY to illustrate syntactic errors
+
+For other suggestions or bug-catches, please contact me directly. 
+
 
 ### Copyright and Attributions
 
