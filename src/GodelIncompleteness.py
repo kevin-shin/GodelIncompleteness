@@ -306,53 +306,51 @@ def convertFormula(event):
         languageText.set("")
 
     userText = formulaEntry.get()
-    userText += ";"
-    yacc.parse(userText)
-    if not yacc.parsedCorrectly:
-            messageText.set("Parsed Incorrectly. Not well formed.")
-            yacc.parsedCorrectly = True
-    else:
-        userText = userText[:-1]
-        if userText == '0':
-            languageText.set("Converted Into Language: 1" + "\n" +
-                             "Encoded into primes: 2^1" + "\n" +
-                             "Godel Number: 2")
+
+    for char in userText:
+        if char not in symbolDict.keys():
+            languageText.set("")
+            messageText.set("Please use the Godel Numbering specified.")
         else:
-            i = 0
-            j = 0
+            userText += ";"
+            yacc.parse(userText)
+            if not yacc.parsedCorrectly:
+                    messageText.set("Parsed Incorrectly. Not well formed.")
+                    yacc.parsedCorrectly = True
+            else:
+                userText = userText[:-1]
 
-            returnedNumber = 1
-            returnedString = ''
-            returnedPrimes = ''
-
-            for char in userText:
-                if char not in symbolDict.keys():
-                    languageText.set("")
-                    messageText.set("Please use the Godel Numbering specified.")
-                else:
+                returnedString = ''
+                for char in userText:
                     returnedString = returnedString + str(symbolDict[char])
-            lenFormula = len(returnedString)
-            primesToUse = generatePrimes(lenFormula)
 
-            for char in returnedString:
-                returnedPrimes = returnedPrimes + str(primesToUse[i]) + '^' + char + "*"
-                i += 1
+                i = 0
+                j = 0
+                returnedNumber = 1
+                returnedPrimes = ''
 
-            for char in returnedString:
-                returnedNumber *= primesToUse[j]**int(char)
-                j += 1
+                lenFormula = len(returnedString)
+                primesToUse = generatePrimes(lenFormula)
 
-            returnedPrimes = returnedPrimes[:-1]
-            messageText.set("")
-            languageText.set("Converted Into Language: " +returnedString + "\n" +
-                             "Encoded into primes: " + returnedPrimes + "\n" +
-                             "Godel Number: " + str(returnedNumber))
+                for char in returnedString:
+                    returnedPrimes = returnedPrimes + str(primesToUse[i]) + '^' + char + "*"
+                    i += 1
+
+                for char in returnedString:
+                    returnedNumber *= primesToUse[j] ** int(char)
+                    j += 1
+
+                returnedPrimes = returnedPrimes[:-1]
+                messageText.set("")
+                languageText.set("Converted Into Language: " + returnedString + "\n" +
+                                 "Encoded into primes: " + returnedPrimes + "\n" +
+                                 "Godel Number: " + str(returnedNumber))
 
 def showProof():
     '''
     Linked to Proof button. Opens Stanford's webpage on Godel's Incompleteness Theorem.
-
     '''
+
     webbrowser.open_new(url)
 
 
