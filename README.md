@@ -33,7 +33,7 @@ There are some acknowledged improvements which could be made including but not l
 - allowing user to specify their own encodings
 - making use of the debugger tool of PLY to illustrate syntactic errors
 
-For other suggestions or bug-catches, please contact me directly. 
+I am hoping to find the time to gradually introduce newer versions with some of these features. For other suggestions or bug-catches, please contact me directly. 
 
 
 ### Copyright and Attributions
