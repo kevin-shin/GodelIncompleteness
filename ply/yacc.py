@@ -35,7 +35,7 @@
 # as Python functions. The grammar is specified by supplying the BNF inside
 # Python documentation strings.  The inspiration for this technique was borrowed
 # from John Aycock's Spark parsing system.  PLY might be viewed as cross between
-# Spark and the GNU bison utility.
+# Spark and the GNU yacc utility.
 #
 # The current implementation is only somewhat object-oriented. The
 # LR parser itself is defined in terms of an object (which allows multiple

@@ -55,7 +55,6 @@ from src.parser import *
 
 #-----VARIABLES-----#
 
-
 url = "https://plato.stanford.edu/entries/goedel-incompleteness/" #Provided reference for the remainder of the proof
 
 #Crossley Symbols. Differs slightly from printed edition for ease of user input.

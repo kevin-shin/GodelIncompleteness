@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6563ff72-2629-4275-9955-e70cdd2e8941" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/drafts/GodelMachine.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test_3.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test_Godel.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test_Godel2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/translator" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GodelMachine" afterPath="$PROJECT_DIR$/yacc/GodelMachine" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GodelMachine.lex" afterPath="$PROJECT_DIR$/yacc/GodelMachine.lex" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GodelMachine.lex.c" afterPath="$PROJECT_DIR$/yacc/GodelMachine.lex.c" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GodelMachine.tab.c" afterPath="$PROJECT_DIR$/yacc/GodelMachine.tab.c" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GodelMachine.tab.h" afterPath="$PROJECT_DIR$/yacc/GodelMachine.tab.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GodelMachine.y" afterPath="$PROJECT_DIR$/yacc/GodelMachine.y" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/lex.yy.c" afterPath="$PROJECT_DIR$/yacc/lex.yy.c" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/lexer" afterPath="$PROJECT_DIR$/yacc/lexer" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mathHelperFunctions.py" afterPath="$PROJECT_DIR$/src/mathHelperFunctions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ply/yacc.py" afterPath="$PROJECT_DIR$/ply/yacc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GodelIncompleteness.py" afterPath="$PROJECT_DIR$/src/GodelIncompleteness.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="parser.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="112" column="18" lean-forward="true" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#1#22#0" expanded="true" />
               </folding>
@@ -29,18 +43,18 @@
       <file leaf-file-name="translator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/translator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-110">
-              <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+            <state relative-caret-position="270">
+              <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GodelIncompleteness.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GodelIncompleteness.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GodelIncompleteness.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4415">
-              <caret line="334" column="43" lean-forward="true" selection-start-line="334" selection-start-column="43" selection-end-line="334" selection-end-column="43" />
+            <state relative-caret-position="162">
+              <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
               <folding>
                 <element signature="e#3517#3537#0" expanded="true" />
               </folding>
@@ -104,16 +118,16 @@
         <option value="$PROJECT_DIR$/parser.py" />
         <option value="$PROJECT_DIR$/ply/yacc.py" />
         <option value="$PROJECT_DIR$/src/parser.py" />
+        <option value="$PROJECT_DIR$/src/mathHelperFunctions.py" />
         <option value="$PROJECT_DIR$/src/translator.py" />
         <option value="$PROJECT_DIR$/src/GodelIncompleteness.py" />
-        <option value="$PROJECT_DIR$/src/mathHelperFunctions.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="7" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="581" />
     <option name="y" value="23" />
-    <option name="width" value="1154" />
+    <option name="width" value="699" />
     <option name="height" value="713" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -132,6 +146,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -142,24 +158,12 @@
             <path>
               <item name="GodelIncompleteness" type="b2602c69:ProjectViewProjectNode" />
               <item name="GodelIncompleteness" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GodelIncompleteness" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GodelIncompleteness" type="462c0819:PsiDirectoryNode" />
-              <item name="ply" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GodelIncompleteness" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GodelIncompleteness" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -167,6 +171,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/yacc" />
       <recent name="$PROJECT_DIR$/drafts" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/images" />
@@ -480,13 +485,20 @@
       <option name="project" value="LOCAL" />
       <updated>1547840361443</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Just kidding, now done with docstrings and comments. Maybe.">
+      <created>1547840426582</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1547840426583</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="23" width="1281" height="713" extended-state="6" />
+    <frame x="581" y="23" width="699" height="713" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2590799" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.391172" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2524272" sideWeight="0.5035461" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -531,7 +543,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Encoding Looks Good. Need to learn how to output exponents, and adjust canvas size to fit whatever the formula is." />
     <MESSAGE value="Images uploaded and tkinter working - problem solve a better way of organizing. Images may potentially need resizing." />
     <MESSAGE value="Starting the primeFactorization function - maybe ask a math or cs professor about encoding such large numbers" />
     <MESSAGE value="got all the math functions working" />
@@ -556,14 +567,15 @@
     <MESSAGE value="parser.py docstring and comments done." />
     <MESSAGE value="More fixing, part 2" />
     <MESSAGE value="Finished with most docstrings and comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished with most docstrings and comments." />
+    <MESSAGE value="Just kidding, now done with docstrings and comments. Maybe." />
+    <option name="LAST_COMMIT_MESSAGE" value="Just kidding, now done with docstrings and comments. Maybe." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/GodelIncompleteness.py</url>
-          <line>110</line>
+          <line>109</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
@@ -761,26 +773,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_Godel2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="33" lean-forward="true" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/PeanoAxioms.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py" />
-    <entry file="file://$PROJECT_DIR$/src/test_3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../COMP 123/Image Manipulations/test_imageTools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
@@ -799,13 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
           <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_Godel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -833,13 +824,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test_HW1.py" />
     <entry file="file://$PROJECT_DIR$/src/test" />
-    <entry file="file://$PROJECT_DIR$/drafts/GodelMachine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GodelMachineRound2.py" />
     <entry file="file://$PROJECT_DIR$/src/parsetab.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -859,7 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23430">
           <caret line="1564" column="12" lean-forward="true" selection-start-line="1564" selection-start-column="12" selection-end-line="1564" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -879,30 +862,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GodelIncompleteness.py">
+    <entry file="file://$PROJECT_DIR$/src/test_3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4415">
-          <caret line="334" column="43" lean-forward="true" selection-start-line="334" selection-start-column="43" selection-end-line="334" selection-end-column="43" />
-          <folding>
-            <element signature="e#3517#3537#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/translator.py">
+    <entry file="file://$PROJECT_DIR$/src/test_Godel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-110">
-          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        <state relative-caret-position="98">
+          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_Godel2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="112" column="18" lean-forward="true" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#1#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/translator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drafts/GodelMachine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GodelIncompleteness.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="e#3517#3537#0" expanded="true" />
           </folding>
         </state>
       </provider>
