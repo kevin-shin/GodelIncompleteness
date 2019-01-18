@@ -115,7 +115,7 @@ def axiomWindow():
     global welcomeWindow
 
     axiomWindow = tk.Tk()
-    axiomWindow.geometry("1000x1000")
+    axiomWindow.geometry("850x850")
     axiomWindow.title("Axioms")
 
     axiomImage = ImageTk.PhotoImage(Image.open('../images/Axioms.jpg'))
@@ -146,13 +146,13 @@ def encodeWindow():
 
     '''takes in a string, converts into Godel's Number'''
 
+    global formulaLabel
     global formulaCanvas
-    global formulaCanvas2
     global formulaEntry
     global languageText
 
     encodeWindow = tk.Tk()
-    encodeWindow.geometry("1000x1000")
+    encodeWindow.geometry("700x500")
     encodeWindow.title("Encoding Formulas by Godel Numbering")
 
     saveLabel = Label(encodeWindow, anchor="w")
@@ -162,26 +162,26 @@ def encodeWindow():
     saveLabel.grid(row=0, column=0,pady=(15,5))
 
     formulaEntry = Entry(encodeWindow, bg = 'white', bd = 0.5, font = "Arial 14",
-                justify= CENTER, width=100)
+                justify= CENTER, width = 75)
     formulaEntry.grid(row=2,column=0,padx=10,pady=(0,15))
     formulaEntry.bind("<Return>",convertFormula)
 
-    formulaCanvas = Label(encodeWindow)
+    formulaCanvas = Canvas(encodeWindow)
     formulaCanvas.pack(fill=BOTH, expand=True)
-    formulaCanvas.grid(row=3, column=0, padx=30, pady=5)
-    languageText = StringVar()
-    formulaCanvas["textvariable"] = languageText
+    formulaCanvas.grid(row=3, column=0, padx=0, pady=5)
 
-    formulaCanvas2 = Label(encodeWindow)
-    formulaCanvas2.pack(fill=BOTH, expand=True)
-    formulaCanvas2.grid(row=4, column=0, padx=30, pady=5)
+    formulaLabel = Label(encodeWindow)
+    formulaLabel.pack(fill=BOTH, expand=True)
+    formulaLabel.grid(row=3, column=0, padx=0, pady=5)
+    languageText = StringVar()
+    formulaLabel["textvariable"] = languageText
 
 def decodeWindow():
 
     '''takes in number, outputs string'''
 
+    global formulaLabel
     global formulaCanvas
-    global formulaCanvas2
     global numberEntry
     global numberCanvas
 
@@ -203,13 +203,6 @@ def decodeWindow():
     numberCanvas.pack(expand=TRUE, fill='both')
     numberCanvas.grid(row=3, column=1, padx=30, pady=5)
 
-'''Do I need this????
-    numberCanvas2 = Canvas(encodeWindow)
-    numberCanvas2.pack(expand=TRUE, fill='both')
-    numberCanvas2.grid(row=4, column=1, padx=30, pady=5)
-'''
-
-
 def numberToText(number):
     primes = dictToList(primeFactorization(number))
     text =''
@@ -220,15 +213,21 @@ def numberToText(number):
 def decodeOutput(event):
     userNumber = int(numberEntry.get())
     formula = numberToText(userNumber)
+    formula = formula + ";"
+    yacc.parse(formula)
     if event.keysym == "Return":
         numberCanvas.delete("all")
-        numberCanvas.create_text(150, 50, text=formula, justify=tk.LEFT)
+        numberCanvas.create_text(150, 10, text=formula, justify=tk.LEFT)
+        if not yacc.parsedCorrectly:
+            numberCanvas.create_text(150, 50, text="Not well formed.")
+            yacc.parsedCorrectly = True
+
 
 def convertFormula(event):
     global saveText
     global returnedNumber
 
-    if event.keysym == "Return": # examples of how to check what key
+    if event.keysym == "Return":
         languageText.set("")
 
     userText = formulaEntry.get()
@@ -240,10 +239,14 @@ def convertFormula(event):
     else:
         userText = userText[:-1]
         if userText == '0':
+            languageText.set("Converted Into Language: 1" + "\n" +
+                             "Encoded into primes: 2^1" + "\n" +
+                             "Godel Number: 2")
+            '''
             formulaCanvas.create_text(150, 10, text="Converted Into Language: 1", justify=tk.LEFT)
             formulaCanvas.create_text(150, 30, text="Encoded into primes: 2^1", justify=tk.LEFT)
             formulaCanvas.create_text(150, 50, text="Godel Number: 2", justify=tk.LEFT)
-
+            '''
         else:
             i = 0
             j = 0
@@ -262,7 +265,6 @@ def convertFormula(event):
 
             for char in returnedString:
                 returnedPrimes = returnedPrimes + str(primesToUse[i]) + '^' + char + "*"
-                returnedPrimes = returnedPrimes + str(primesToUse[i]) + '^' + char + "."
                 i += 1
 
             for char in returnedString:
@@ -270,12 +272,15 @@ def convertFormula(event):
                 j += 1
 
             returnedPrimes = returnedPrimes[:-1]
-            languageText.set("Encoded into primes: "+ returnedPrimes)
+            languageText.set("Converted Into Language: " +returnedString + "\n" +
+                             "Encoded into primes: " + returnedPrimes + "\n" +
+                             "Godel Number: " + str(returnedNumber))
             '''
             formulaCanvas.create_text(150,10,text="Converted Into Language: "+returnedString, justify=tk.LEFT)
             formulaCanvas.create_text(150,30,text="Encoded into primes: "+returnedPrimes,justify=tk.LEFT)
             formulaCanvas.create_text(150,50,text="Godel Number: "+str(returnedNumber), justify=tk.LEFT)
             '''
+
     print("Formula Converted")
 
 GUIMain()
