@@ -6,6 +6,10 @@ numDict = {1:'0',2:'s',3:'+',4:'*',5:'=',6:'(',7:')',8:'|',9:'x',10:',',11:'~',1
 ##---------MATH HELPER FUNCTIONS---------##
 
 def isitprime(n):
+    '''
+    :param n: An integer (n)
+    :return: boolean - True if n is prime, False otherwise.
+    '''
     a = 2
     flag = True
     while a <= n/2:
