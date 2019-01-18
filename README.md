@@ -1,8 +1,8 @@
 # GodelIncompleteness
 
-
-____README IN PROGRESS, PLEASE EXCUSE THE APPEARANCE AS FILES GET UPDATED
-
+***
+This project is in its final stages, and a README will be published to reflect the full breadth of the project shortly. 
+***
 
 #Copyright
 
