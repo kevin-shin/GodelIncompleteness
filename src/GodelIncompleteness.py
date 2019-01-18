@@ -1,12 +1,12 @@
 import tkinter as tk
+import webbrowser
 from tkinter import *
 from PIL import ImageTk, Image
 
 from src.mathHelperFunctions import *
 from src.parser import *
 
-
-welcomeWindow = None
+url = "https://plato.stanford.edu/entries/goedel-incompleteness/"
 
 symbolDict = {'0':1,'s':2,'+':3,'*':4,'=':5,'(':6,')':7,'|':8,'x':9,',':10,'~':11,'&':12,'∃':13}
 numDict = {1:'0',2:'s',3:'+',4:'*',5:'=',6:'(',7:')',8:'|',9:'x',10:',',11:'~',12:'&',13:'∃'}
@@ -20,7 +20,6 @@ def GUIMain():
     welcomeWindow = tk.Tk()
     welcomeWindow["bg"] = "white"
     welcomeWindow.title("Gödel Incompleteness Theorem")
-
 
     welcomeLabel = Label(welcomeWindow)
     welcomeLabel["text"] = "Gödel Incompleteness Theorem" + "\n" + "Advanced Symbolic Logic"
@@ -58,7 +57,6 @@ def introWindow():
     introLabel["text"] = "SOME INTRO TEXT HERE ABOUT GODEL AND INCOMPLETENESS"
 
 
-
     Frame1 = Frame(introWindow)
     Frame1["bg"] = "white"
     Frame1.grid(row=1, column=2)
@@ -77,7 +75,7 @@ def introWindow():
     numberingButton["bg"] = "#997711"
     numberingButton["fg"] = "blue"
     numberingButton["command"] = numberWindow
-    numberingButton.grid(row=2, column=1)
+    numberingButton.grid(row=2, column=1,padx = 15)
 
     encodeButton = Button(Frame1)
     encodeButton["text"] = "Encode"
@@ -95,14 +93,13 @@ def introWindow():
     decodeButton["command"] = decodeWindow
     decodeButton.grid(row=4, column=1)
 
-    moveonButton = Button(Frame1)
-    moveonButton["text"] = "Proof"
-    moveonButton["font"] = "Arial 12"
-    moveonButton["bg"] = "#997711"
-    moveonButton["fg"] = "blue"
-    #moveonButton["command"] = sepiaClick
-    moveonButton.grid(row=5, column=1,pady=(0,40))
-
+    proofButton = Button(Frame1)
+    proofButton["text"] = "Proof"
+    proofButton["font"] = "Arial 12"
+    proofButton["bg"] = "#997711"
+    proofButton["fg"] = "blue"
+    proofButton["command"] = showProof
+    proofButton.grid(row=5, column=1,pady=(0,40))
 
     welcomeWindow.destroy()
     introWindow.mainloop()
@@ -115,7 +112,7 @@ def axiomWindow():
     global welcomeWindow
 
     axiomWindow = tk.Tk()
-    axiomWindow.geometry("850x850")
+    axiomWindow.geometry("800x850")
     axiomWindow.title("Axioms")
 
     axiomImage = ImageTk.PhotoImage(Image.open('../images/Axioms.jpg'))
@@ -131,13 +128,13 @@ def numberWindow():
     global numberingWindow
 
     numberingWindow = tk.Tk()
-    numberingWindow.geometry("500x500")
+    numberingWindow.geometry("375x550")
     numberingWindow.title("Godel Numbering System by Crossley")
 
     godelImage = ImageTk.PhotoImage(Image.open('../images/GodelKey.jpg'))
     numberingCanvas = Canvas(numberingWindow)
     numberingCanvas.pack(expand=YES, fill=BOTH)
-    numberingCanvas.create_image(50, 10, image=godelImage, anchor=NW)
+    numberingCanvas.create_image(50, 5, image=godelImage, anchor=NW)
 
     numberingWindow.mainloop()
 
@@ -147,9 +144,9 @@ def encodeWindow():
     '''takes in a string, converts into Godel's Number'''
 
     global formulaLabel
-    global formulaCanvas
     global formulaEntry
     global languageText
+    global messageText
 
     encodeWindow = tk.Tk()
     encodeWindow.geometry("700x500")
@@ -166,11 +163,15 @@ def encodeWindow():
     formulaEntry.grid(row=2,column=0,padx=10,pady=(0,15))
     formulaEntry.bind("<Return>",convertFormula)
 
-    formulaCanvas = Canvas(encodeWindow)
-    formulaCanvas.pack(fill=BOTH, expand=True)
-    formulaCanvas.grid(row=3, column=0, padx=0, pady=5)
+    textLabel = Label(encodeWindow)
+    textLabel["anchor"] = 'w'
+    textLabel.pack(fill=BOTH, expand=True)
+    textLabel.grid(row=4, column=0, padx=0, pady=5)
+    messageText = StringVar()
+    textLabel["textvariable"] = messageText
 
     formulaLabel = Label(encodeWindow)
+    formulaLabel["anchor"] = 'w'
     formulaLabel.pack(fill=BOTH, expand=True)
     formulaLabel.grid(row=3, column=0, padx=0, pady=5)
     languageText = StringVar()
@@ -181,7 +182,6 @@ def decodeWindow():
     '''takes in number, outputs string'''
 
     global formulaLabel
-    global formulaCanvas
     global numberEntry
     global numberCanvas
 
@@ -217,11 +217,11 @@ def decodeOutput(event):
     yacc.parse(formula)
     if event.keysym == "Return":
         numberCanvas.delete("all")
+        formula = formula[:-1]
         numberCanvas.create_text(150, 10, text=formula, justify=tk.LEFT)
         if not yacc.parsedCorrectly:
             numberCanvas.create_text(150, 50, text="Not well formed.")
             yacc.parsedCorrectly = True
-
 
 def convertFormula(event):
     global saveText
@@ -234,7 +234,7 @@ def convertFormula(event):
     userText += ";"
     yacc.parse(userText)
     if not yacc.parsedCorrectly:
-            formulaCanvas.create_text(150, 10, text="Parsed Incorrectly. Not well formed.")
+            messageText.set("Parsed Incorrectly. Not well formed.")
             yacc.parsedCorrectly = True
     else:
         userText = userText[:-1]
@@ -242,11 +242,6 @@ def convertFormula(event):
             languageText.set("Converted Into Language: 1" + "\n" +
                              "Encoded into primes: 2^1" + "\n" +
                              "Godel Number: 2")
-            '''
-            formulaCanvas.create_text(150, 10, text="Converted Into Language: 1", justify=tk.LEFT)
-            formulaCanvas.create_text(150, 30, text="Encoded into primes: 2^1", justify=tk.LEFT)
-            formulaCanvas.create_text(150, 50, text="Godel Number: 2", justify=tk.LEFT)
-            '''
         else:
             i = 0
             j = 0
@@ -257,7 +252,8 @@ def convertFormula(event):
 
             for char in userText:
                 if char not in symbolDict.keys():
-                    formulaCanvas.create_text(150,10,text="Please use the Godel Numbering specified.", justify=tk.LEFT)
+                    languageText.set("")
+                    messageText.set("Please use the Godel Numbering specified.")
                 else:
                     returnedString = returnedString + str(symbolDict[char])
             lenFormula = len(returnedString)
@@ -272,15 +268,14 @@ def convertFormula(event):
                 j += 1
 
             returnedPrimes = returnedPrimes[:-1]
+            messageText.set("")
             languageText.set("Converted Into Language: " +returnedString + "\n" +
                              "Encoded into primes: " + returnedPrimes + "\n" +
                              "Godel Number: " + str(returnedNumber))
-            '''
-            formulaCanvas.create_text(150,10,text="Converted Into Language: "+returnedString, justify=tk.LEFT)
-            formulaCanvas.create_text(150,30,text="Encoded into primes: "+returnedPrimes,justify=tk.LEFT)
-            formulaCanvas.create_text(150,50,text="Godel Number: "+str(returnedNumber), justify=tk.LEFT)
-            '''
 
-    print("Formula Converted")
+def showProof():
+    webbrowser.open_new(url)
+
+
 
 GUIMain()

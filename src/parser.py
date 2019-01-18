@@ -17,7 +17,7 @@ t_EQUALS = r'='
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_NEXT = r'\,'
-t_VARIABLE = r'x'
+t_VARIABLE = r'x\|*'
 t_NOT = r'~'
 t_AND = r'\&'
 t_EXISTS = r'E'
@@ -95,7 +95,6 @@ def p_int(p):
 
 def p_error(p):
     global parsedCorrectly
-    print("Error, not a well formed sentence of the language.")
     yacc.parsedCorrectly = False
 
 yacc.yacc()
