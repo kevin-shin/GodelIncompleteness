@@ -1,13 +1,17 @@
 import ply.lex as lex
 import ply.yacc as yacc
 
+# Variable associated with executed parser. The importance of this variable will become more apparent
+# in lines 98-100, but basically this serves as a toggle to see whether the parser generated an error.
+# This allows the GodelIncompleteness program to generate the appropriate message.
+
 parsedCorrectly = True
+
+##-------------TOKENS-------------##
 
 tokens = ['ZERO', 'SUCCESSOR', 'PLUS', 'TIMES', 'EQUALS',
           'LPAREN', 'RPAREN', 'NEXT', 'VARIABLE', 'NOT', 'AND',
           'EXISTS', 'END']
-
-#TOKENS
 
 t_ZERO = r'0'
 t_SUCCESSOR = r's'
@@ -23,16 +27,6 @@ t_AND = r'\&'
 t_EXISTS = r'E'
 t_END = r'\;'
 
-#def t_ZERO(t):
-#    r'0'
-#    t.value = 0
-#    return t
-
-#def t_SUCCESSOR(t):
-#    r's'
-#    t.value = "s"
-#    return t
-
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += t.value.count("\n")
@@ -41,14 +35,18 @@ def t_error(t):
     print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
 
-
-#Build the lexer
+# Build the lexer
 lex.lex()
 
+# Precedence rules. A bit unnecessary since we're not actually performing the operation.
 precedence = (
     ('left', 'PLUS'),
     ('left', 'TIMES'),
 )
+
+##------------------------------------------------------##
+#          CONTEXT FREE GRAMMAR FOR ARITHMETIC           #
+##------------------------------------------------------##
 
 
 def p_start(p):
@@ -93,12 +91,18 @@ def p_int(p):
            | SUCCESSOR LPAREN int RPAREN'''
     p[0] = None
 
+
+# Error function
 def p_error(p):
     global parsedCorrectly
     yacc.parsedCorrectly = False
 
+# Build parser
 yacc.yacc()
 
+
+# If the user wants to run the lexer/parser independently, lines 105-110 will run the parser on the
+# console. The lines are left for ease of use/debugging purposes.
 
 #while True:
 #    try:
