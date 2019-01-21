@@ -170,7 +170,7 @@ def axiomWindow():
     axiomWindow.geometry("800x850")
     axiomWindow.title("Axioms")
 
-    axiomImage = ImageTk.PhotoImage(Image.open('../images/Axioms.jpg'))
+    axiomImage = ImageTk.PhotoImage(Image.open('../images/AxiomsGodel.jpg'))
 
     axiomCanvas = Canvas(axiomWindow)
     axiomCanvas.pack(expand=YES, fill=BOTH)
