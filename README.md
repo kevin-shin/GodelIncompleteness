@@ -28,7 +28,7 @@ the complex and abstract nature of the proof. Students are encouraged to remembe
 
 ### Further Notes
 
-Bugs: There is one small bug where opening the Axioms window after the Godel Numbering causes an error in uploading the iamge again. This is currently what I am fixing. 
+Bugs: There is one small bug where opening the Axioms window after the Godel Numbering causes an error in uploading the image again. This is currently what I am fixing. 
 
 There are some acknowledged improvements which could be made including but not limited to the following:
 - Text on the introductory window
