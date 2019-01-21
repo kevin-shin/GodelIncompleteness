@@ -51,7 +51,7 @@ The Proof button redirects the reader to the Stanford Encyclopedia of Philosophy
 **Citation:** Raatikainen, Panu, "Gödel's Incompleteness Theorems", The Stanford Encyclopedia of Philosophy (Fall 2018 Edition), Edward N. Zalta (ed.), URL = <https://plato.stanford.edu/archives/fall2018/entries/goedel-incompleteness/>.
 
 
-This repository uses the [PLY compiler](https://www.dabeaz.com/ply/ply.html), developed by David M. Beazley, to develop the parser for the CFG for arithmetic. This project makes no endorsement or promotion of a product, and is solely a personal project. In accordance with the copyright measures specified on David's page, the following copyright is included in full:
+This repository uses the [PLY compiler](https://www.dabeaz.com/ply/ply.html), developed by David M. Beazley, to write the parser for the CFG for arithmetic. This project makes no endorsement or promotion of a product, and is solely a personal project. In accordance with the copyright instructions specified on David's page, the following copyright is included in full:
 
 Copyright (C) 2001-2018
 David M. Beazley (Dabeaz LLC)
