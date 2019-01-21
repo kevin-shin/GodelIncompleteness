@@ -28,6 +28,8 @@ the complex and abstract nature of the proof. Although Godel numbering is explai
 
 ### Further Notes
 
+Bugs: There is one small bug where opening the Axioms window after the Godel Numbering causes an error in uploading the iamge again. This is currently what I am fixing. 
+
 There are some acknowledged improvements which could be made including but not limited to the following:
 - Text on the introductory window
 - allowing user to specify their own encodings
