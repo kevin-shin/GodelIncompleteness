@@ -1,4 +1,4 @@
-# Godel's Machine
+# Godel's Incompleteness Theorem
 
 This project was developed after taking PHIL 313, Advanced Symbolic Logic at Macalester College, in which I was exposed
 to the proof of Godel's Incompleteness Theorem, which states that any system that uses arithmetic is incomplete -
