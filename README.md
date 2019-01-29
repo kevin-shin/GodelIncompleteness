@@ -8,7 +8,7 @@ of logic, and then to specify a sentence (the Godel sentence) which cannot be pr
 In most versions of the proof, the details for the numbering and encoding are left to be an ambiguous portion
 of the proof, presumably because from a theoretical perspective, the details of the encoding are unimportant
 as long as it is doable and sound. However, the actual encoding procedure assembles an interesting
-melange of skills from number theory, language theory, and presents a unique challenge to the coder to devise
+mix of skills from number theory, language theory, and presents a unique challenge to the coder to devise
 an algorithm capable of handling arbitrary sentences of arithmetic. Since this area is one of the most important intersections of Mathematics, Computer Science, and Philosophy, I made it my goal to build this machine. 
 
 The intention of this project is simply to provide a GUI in which the user is able to type in sentences of
