@@ -1,6 +1,6 @@
 # Godel's Incompleteness Theorem
 
-//PHASE 2, with a complete rework of the UI, is currently in the works and will be released ASAP. 
+***PHASE 2, with a complete rework of the UI, is currently in the works and will be released ASAP. 
 
 This project was developed after taking PHIL 313, Advanced Symbolic Logic at Macalester College, in which I was exposed
 to the proof of Godel's Incompleteness Theorem, which states that any system that uses arithmetic is incomplete -
